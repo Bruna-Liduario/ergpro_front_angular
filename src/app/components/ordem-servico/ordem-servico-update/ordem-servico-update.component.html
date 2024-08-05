@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-title class="titulo">Atualizar Ordem de Serviço</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          [(ngModel)]="ordemServico.descricao"
+          name="descricao"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="pickerInicio"
+          placeholder="Data de Início"
+          [(ngModel)]="ordemServico.datainicio"
+          name="datainicio"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="pickerFim"
+          placeholder="Data de Fim"
+          [(ngModel)]="ordemServico.datafim"
+          name="datafim"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFim></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Centro Custo</mat-label>
+        <mat-select [(ngModel)]="ordemServico.idCentroCusto" name="idCentroCusto" (selectionChange)="carregarTiposServicosPorCentroCusto($event.value)">
+          <mat-option *ngFor="let centroCusto of centrosCusto" [value]="centroCusto.id">
+            {{ centroCusto.numero }} - {{ centroCusto.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Serviço</mat-label>
+        <mat-select [(ngModel)]="ordemServico.idTipoServico" name="idTipoServico">
+          <mat-option *ngFor="let tipoServico of tiposServicosFiltrados" [value]="tipoServico.id">
+            {{ tipoServico.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="updateOrdemServico()">Atualizar</button>
+
+    <button mat-raised-button (click)="cancelOrdemServico()">Cancelar</button>
+  </div>
+</mat-card>
+
+

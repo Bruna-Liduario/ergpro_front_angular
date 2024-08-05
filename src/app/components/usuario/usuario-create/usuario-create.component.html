@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-title class="titulo">Novo Usuário</mat-card-title>
+  <form (ngSubmit)="registerUser()">
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Digite nome do usuário"
+          [(ngModel)]="usuarios.login"
+          name="login"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Password"
+          [(ngModel)]="usuarios.password"
+          name="password"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-select
+          placeholder="Roles"
+          [(ngModel)]="usuarios.role"
+          name="roles"
+        >
+          <mat-option *ngFor="let roles of rolesList" [value]="roles">{{
+            roles
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="registerUser()">Salvar</button>
+
+    <button mat-raised-button (click)="cancelUsuario()">Cancelar</button>
+  </div>
+</mat-card>
+

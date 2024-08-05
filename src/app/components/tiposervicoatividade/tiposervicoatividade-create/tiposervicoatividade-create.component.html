@@ -1,0 +1,51 @@
+<form>
+  <mat-form-field appearance="fill" class="wide-form-field">
+    <mat-label>Tipo de Serviço</mat-label>
+    <mat-select [(ngModel)]="tipoServicoId" name="tipoServicoId">
+      <mat-option *ngFor="let tipo of tiposServicos" [value]="tipo.id">
+        {{ tipo.descricao }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-card>
+    <mat-card-title>Atividades</mat-card-title>
+    <div class="table-container">
+      <mat-table [dataSource]="atividadesDataSource" class="mat-elevation-z8">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (change)="$event ? selectAll() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+            >
+              {{ selection.hasValue() ? (isAllSelected() ? 'Todos' : 'Nenhum') : '' }}
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? toggleSelection(row) : null"
+              [checked]="selection.isSelected(row)"
+            >
+              {{ row.descricao }}
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Other columns can go here -->
+
+        <mat-header-row *matHeaderRowDef="['select']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['select']"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="saveTipoServicoAtividade()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="cancelAssociacao()">Cancelar</button>
+  </div>
+</form>

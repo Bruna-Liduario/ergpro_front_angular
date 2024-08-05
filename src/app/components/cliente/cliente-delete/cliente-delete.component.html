@@ -1,0 +1,121 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Cliente</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="cliente.nome"
+          name="nome"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cnpj"
+          [(ngModel)]="cliente.cnpj"
+          name="cnpj"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone"
+          type="tel"
+          [(ngModel)]="cliente.tel1"
+          name="tel1"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [(ngModel)]="cliente.email"
+          name="email"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Rua"
+          [(ngModel)]="cliente.rua"
+          name="rua"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Numero"
+          [(ngModel)]="cliente.numero"
+          name="numero"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Complemento"
+          [(ngModel)]="cliente.complemento"
+          name="complemento"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Bairro"
+          [(ngModel)]="cliente.bairro"
+          name="bairro"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cep"
+          [(ngModel)]="cliente.cep"
+          name="cep"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          [(ngModel)]="cliente.cidade"
+          name="cidade"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="UF" [(ngModel)]="cliente.uf" name="uf" />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Razao Social"
+          [(ngModel)]="cliente.razaoSocial"
+          name="razaoSocial"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="nomeEmpresa"  [value]="cliente.idEmpresa" name="nomeEmpresa" disabled>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteCliente()">Deletar</button>
+
+    <button mat-raised-button (click)="cancelCliente()">Cancelar</button>
+  </div>
+</mat-card>
+

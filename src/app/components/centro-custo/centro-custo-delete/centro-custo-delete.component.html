@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Centro de Custo</mat-card-title>
+  <form>
+    <div *ngIf="centroCusto" class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Numero" [value]="centroCusto.numero" name="numero" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Descrição"  [value]="centroCusto.descricao" name="descricao" disabled>
+    </mat-form-field>
+    </div>
+    <div *ngIf="centroCusto" class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Data de Início" [value]="centroCusto.datainicio | date: 'dd/MM/yyyy'" name="datainicio" disabled>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Data de Fim" [value]="centroCusto.datafim | date: 'dd/MM/yyyy'" name="datafim" disabled>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Status"  [value]="centroCusto.status" name="status" disabled>
+    </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteCentroCusto()" color="primary">
+      Deletar
+    </button>
+
+    <button mat-raised-button (click)="cancelCentroCusto()" color="primary">
+      Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+
+

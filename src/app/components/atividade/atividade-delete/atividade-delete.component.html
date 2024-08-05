@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Atividade</mat-card-title>
+  <form>
+    <div *ngIf="atividades" class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Descrição"  [value]="atividades.descricao" name="descricao" disabled>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteAtividades()">Deletar</button>
+
+    <button mat-raised-button (click)="cancelAtividades()">Cancelar</button>
+  </div>
+</mat-card>
+

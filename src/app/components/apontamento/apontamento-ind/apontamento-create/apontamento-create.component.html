@@ -1,0 +1,127 @@
+<mat-card>
+  <mat-card-title class="titulo">Novo apontamento</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Funcionário</mat-label>
+        <mat-select
+          [(ngModel)]="apontamentosind.idFuncionarios"
+          name="idFuncionarios"
+        >
+          <mat-option
+            *ngFor="let funcionario of funcionarios"
+            [value]="funcionario.id"
+          >
+            {{ funcionario.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ordem de Serviço</mat-label>
+        <mat-select
+          [(ngModel)]="apontamentosind.idOrdemServico"
+          name="idOrdemServico"
+          (selectionChange)="selecionarOrdemServico($event.value)"
+        >
+          <mat-option
+            *ngFor="let ordemServico of ordemServico"
+            [value]="ordemServico.id"
+          >
+            {{ ordemServico.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Centro de Custo</mat-label>
+        <input
+          matInput
+          [value]="apontamentosind.descricaoCentroCusto"
+          name="descricaoCentroCusto"
+          disabled
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo de Serviço</mat-label>
+        <input
+          matInput
+          [value]="apontamentosind.descricaoTipoServico"
+          name="descricaoTipoServico"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Atividade</mat-label>
+        <mat-select
+          [(ngModel)]="apontamentosind.idAtividade"
+          name="idAtividade"
+        >
+          <mat-option
+            *ngFor="let atividade of atividades"
+            [value]="atividade.id"
+          >
+            {{ atividade.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Local</mat-label>
+        <input matInput [(ngModel)]="apontamentosind.local" name="local" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Data Apontamento</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerInicio"
+          [(ngModel)]="apontamentosind.data"
+          name="data"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerInicio"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Horas Normais</mat-label>
+        <input
+          matInput
+          type="time"
+          [(ngModel)]="apontamentosind.minutos"
+          name="minutos"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Horas Extras</mat-label>
+        <input
+          matInput
+          type="time"
+          [(ngModel)]="apontamentosind.minutosExtra"
+          name="minutosextras"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Observação</mat-label>
+        <input matInput [(ngModel)]="apontamentosind.observacao" name="obs" />
+      </mat-form-field>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button (click)="createApontamento()">Salvar</button>
+
+      <button mat-raised-button (click)="cancelApontamento()">Cancelar</button>
+    </div>
+  </form>
+</mat-card>
+
+<app-apontamento-read></app-apontamento-read>

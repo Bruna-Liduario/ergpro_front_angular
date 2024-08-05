@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title class="titulo">Atualizar Atividade</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          [(ngModel)]="atividades.descricao"
+          name="descricao"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="updateAtividades()">Atualizar</button>
+
+    <button mat-raised-button (click)="cancelAtividades()">Cancelar</button>
+  </div>
+</mat-card>
+

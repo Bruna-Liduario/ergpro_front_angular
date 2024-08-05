@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title class="titulo">Novo Tipo de Serviço</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          [(ngModel)]="tipoServico.descricao"
+          name="descricao"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="createTipoServico()">Salvar</button>
+
+    <button mat-raised-button (click)="cancelTipoServico()">Cancelar</button>
+  </div>
+</mat-card>

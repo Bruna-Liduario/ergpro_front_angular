@@ -1,0 +1,53 @@
+<form>
+  <mat-form-field appearance="fill" class="wide-form-field">
+    <mat-label>Centro de Custo</mat-label>
+    <mat-select [(ngModel)]="centroCustoId" name="centroCustoId">
+      <mat-option *ngFor="let centrocusto of centrosCustos" [value]="centrocusto.id">
+        {{ centrocusto.descricao }} - {{ centrocusto.numero }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-card>
+    <mat-card-title>Tipos de Serviços</mat-card-title>
+    <div class="table-container">
+      <mat-table [dataSource]="tipoServicoDataSource" class="mat-elevation-z8">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (change)="$event ? selectAll() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+            >
+              {{ selection.hasValue() ? (isAllSelected() ? 'Todos' : 'Nenhum') : '' }}
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? toggleSelection(row) : null"
+              [checked]="selection.isSelected(row)"
+            >
+              {{ row.descricao }}
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Other columns can go here -->
+
+        <mat-header-row *matHeaderRowDef="['select']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['select']"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="saveCentroCustoTipoServico()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="cancelAssociacao()">Cancelar</button>
+  </div>
+
+
+</form>

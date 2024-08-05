@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Empresa</mat-card-title>
+  <form>
+    <div *ngIf="empresa" class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Nome" [value]="empresa.nome" name="nome" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cnpj"  [value]="empresa.cnpj" name="cnpj" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Telefone"  [value]="empresa.tel1" name="tel1" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="E-mail"  [value]="empresa.email" name="email" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Rua"  [value]="empresa.rua" name="rua" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Numero"  [value]="empresa.numero" name="numero" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Complemento"  [value]="empresa.complemento" name="complemento" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Bairro"  [value]="empresa.bairro" name="bairro" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Cep"  [value]="empresa.cep" name="cep" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cidade"  [value]="empresa.cidade" name="cidade" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="UF"  [value]="empresa.uf" name="uf" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Status"  [value]="empresa.statusEmpresa" name="statusEmpresa" disabled>
+    </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteEmpresa()" color="primary">
+      Deletar
+    </button>
+
+    <button mat-raised-button (click)="cancelEmpresa()" color="primary">
+      Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+

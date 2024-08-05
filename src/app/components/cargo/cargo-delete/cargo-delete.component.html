@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Cargo</mat-card-title>
+  <form>
+    <div *ngIf="cargos" class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Descrição"  [value]="cargos.descricao" name="descricao" disabled>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteCargos()">Deletar</button>
+
+    <button mat-raised-button (click)="cancelCargos()">Cancelar</button>
+  </div>
+</mat-card>

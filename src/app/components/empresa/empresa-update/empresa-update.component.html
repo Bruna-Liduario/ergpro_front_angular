@@ -1,0 +1,117 @@
+<mat-card>
+  <mat-card-title class="titulo">Alterar Empresa</mat-card-title>
+  <form>
+    <div *ngIf="empresa" class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="empresa.nome"
+          name="nome"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CNPJ"
+          [(ngModel)]="empresa.cnpj"
+          name="cnpj"
+          mask="00.000.000/0000-00"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone"
+          [(ngModel)]="empresa.tel1"
+          name="tel1"
+          [mask]="getMask(empresa.tel1)"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [(ngModel)]="empresa.email"
+          name="email"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Rua"
+          [(ngModel)]="empresa.rua"
+          name="rua"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Numero"
+          [(ngModel)]="empresa.numero"
+          name="numero"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Complemento"
+          [(ngModel)]="empresa.complemento"
+          name="complemento"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Bairro"
+          [(ngModel)]="empresa.bairro"
+          name="bairro"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cep"
+          [(ngModel)]="empresa.cep"
+          name="cep"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          [(ngModel)]="empresa.cidade"
+          name="cidade"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="UF" [(ngModel)]="empresa.uf" name="uf" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Status" [(ngModel)]="empresa.statusEmpresa" name="statusEmpresa">
+          <mat-option *ngFor="let status of statusList" [value]="status">{{ status }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="updateEmpresa()" color="primary">
+      Atualizar
+    </button>
+
+    <button mat-raised-button (click)="cancelEmpresa()" color="primary">
+      Cancelar
+    </button>
+  </div>
+</mat-card>

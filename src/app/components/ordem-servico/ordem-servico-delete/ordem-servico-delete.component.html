@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão de Ordem de Serviço</mat-card-title>
+
+  <form>
+    <div *ngIf="ordemServico" class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Descrição" [value]="ordemServico.descricao" name="descricao" disabled>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="ordemServico" class="form-row">
+      <mat-form-field>
+        <input matInput placeholder="Data de Início" [value]="ordemServico.datainicio | date: 'dd/MM/yyyy'" name="datainicio" disabled>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Data de Fim" [value]="ordemServico.datafim | date: 'dd/MM/yyyy'" name="datafim" disabled>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Centro Custo"  [value]="ordemServico.idCentroCusto" name="idCentroCusto" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Tipo Serviço"  [value]="ordemServico.idTipoServico" name="idTipoServico" disabled>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button color="warn" (click)="deleteOrdemServico()">Deletar</button>
+
+    <button mat-raised-button (click)="cancelOrdemServico()">Cancelar</button>
+  </div>
+</mat-card>
+

@@ -1,0 +1,161 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão Funcionário</mat-card-title>
+  <form>
+    <div *ngIf="funcionarios" class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nome"
+          [value]="funcionarios.nome"
+          name="nome"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CPF"
+          [value]="funcionarios.cpf"
+          name="cpf"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Matrícula"
+          [value]="funcionarios.matricula"
+          name="matricula"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Admissão"
+          [value]="funcionarios.admissao | date : 'dd/MM/yyyy'"
+          name="admissao"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nascimento"
+          [value]="funcionarios.nascimento | date : 'dd/MM/yyyy'"
+          name="nascimento"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone"
+          [value]="funcionarios.tel1"
+          name="tel1"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Genero"
+          [value]="funcionarios.genero"
+          name="genero"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Estado Civil"
+          [value]="funcionarios.estadoCivil"
+          name="estadoCivil"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Grau"
+          [value]="funcionarios.grau"
+          name="grau"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="E-mail"
+          [value]="funcionarios.email"
+          name="email"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          [value]="funcionarios.cidade"
+          name="cidade"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="UF"
+          [value]="funcionarios.uf"
+          name="uf"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="nomeEmpresa"
+          [value]="funcionarios.idEmpresa"
+          name="nomeEmpresa"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Centro de Custo"
+          [value]="funcionarios.idCentroCusto"
+          name="centroCusto"
+          disabled
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          placeholder="Cargo"
+          [value]="funcionarios.idCargo"
+          name="descricaoCargo"
+          disabled
+        />
+      </mat-form-field>
+    </div>
+
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteFuncionario()" color="primary">
+      Deletar
+    </button>
+
+    <button mat-raised-button (click)="cancelFuncionario()" color="primary">
+      Cancelar
+    </button>
+  </div>
+</mat-card>

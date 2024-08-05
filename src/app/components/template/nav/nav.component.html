@@ -1,0 +1,77 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+    <mat-nav-list class="list">
+      <a mat-list-item routerLink="/inicio">
+        <i class="material-icons v-middle">home</i>
+        Início
+      </a>
+      <div mat-subheader>Cadastros</div>
+      <a mat-list-item routerLink="/empresas">
+        <i class="material-icons v-middle">account_balance</i>
+        Empresas
+      </a>
+      <a mat-list-item routerLink="/clientes">
+        <i class="material-icons v-middle">face</i>
+        Clientes
+      </a>
+      <a mat-list-item routerLink="/centrocusto">
+        <i class="material-icons v-middle">attach_money</i>
+        Centro de Custo
+      </a>
+      <a mat-list-item routerLink="/cargos">
+        <i class="material-icons v-middle">work</i>
+        Cargos
+      </a>
+      <a mat-list-item routerLink="/funcionarios">
+        <i class="material-icons v-middle">person</i>
+        Funcionários
+      </a>
+      <a mat-list-item routerLink="/tiposervico">
+        <i class="material-icons v-middle">build</i>
+        Tipo de Serviço
+      </a>
+      <a mat-list-item routerLink="/ordemservico">
+        <i class="material-icons v-middle">assignment</i>
+        Ordem de Serviço
+      </a>
+      <a mat-list-item routerLink="/atividades">
+        <i class="material-icons v-middle">list_alt</i>
+        Atividades
+      </a>
+      <a mat-list-item routerLink="/associacoes">
+        <i class="material-icons v-middle">link</i>
+        Associações
+      </a>
+      <div mat-subheader>Configuração</div>
+      <a mat-list-item routerLink="/permissoes">
+        <i class="material-icons v-middle">lock</i>
+        Permissões
+      </a>
+      <a mat-list-item routerLink="/usuarios">
+        <i class="material-icons v-middle">people</i>
+        Usuários
+      </a>
+      <div mat-subheader>Apontamento</div>
+      <a mat-list-item routerLink="/apontamentos">
+        <i class="material-icons v-middle">schedule</i>
+        Apontamento
+      </a>
+      <div mat-subheader>Consultas</div>
+      <a mat-list-item routerLink="/consultas">
+        <i class="material-icons v-middle">search</i>
+        Consulta
+      </a>
+      <div mat-subheader>Relatórios</div>
+      <a mat-list-item routerLink="/relatorio">
+        <i class="material-icons v-middle">description</i>
+        Relatório
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

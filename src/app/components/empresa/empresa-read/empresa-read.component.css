@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+i.edit{
+  color: #d9cd26 ;
+  margin-right: 5px;
+}
+
+i.delete{
+  color: #e35e6b;
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px !important;
+}
+
+.form-field-left {
+  width: 300px;
+}
+

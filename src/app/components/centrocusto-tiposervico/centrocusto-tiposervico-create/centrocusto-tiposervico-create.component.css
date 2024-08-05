@@ -1,0 +1,39 @@
+.table-container {
+  max-height: 500px; /* Altura máxima para a tabela, ajuste conforme necessário */
+  overflow: auto;
+}
+
+.wide-form-field {
+  width: 400px; /* Defina a largura desejada */
+}
+.mat-card {
+  margin-top: 16px;
+}
+
+.button-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 8px;
+}
+
+.mat-checkbox {
+  margin: 0;
+}
+
+/* Button style */
+
+button {
+  margin-left: 15px;
+  margin-top: 30px;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+}

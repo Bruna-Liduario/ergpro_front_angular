@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title class="titulo">Confirmar Exclusão de Usuário</mat-card-title>
+  <form>
+    <div *ngIf="usuarios" class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Login" [value]="usuarios.login" name="login" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password"  [value]="usuarios.password" name="password" disabled>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+    <mat-form-field>
+      <input matInput placeholder="Role"  [value]="usuarios.role" name="role" disabled>
+    </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="deleteUsuario()" color="primary">
+      Deletar
+    </button>
+
+    <button mat-raised-button (click)="cancelUsuario()" color="primary">
+      Cancelar
+    </button>
+  </div>
+
+</mat-card>
+
+
+
+

@@ -1,0 +1,167 @@
+<mat-card>
+  <mat-card-title class="titulo">Novo Funcionário</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          [(ngModel)]="funcionarios.nome"
+          name="nome"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          [(ngModel)]="funcionarios.cpf"
+          name="cpf"
+          mask="000.000.000-00"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Matrícula</mat-label>
+        <input
+          matInput
+          [(ngModel)]="funcionarios.matricula"
+          name="matricula"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Admissão</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerInicio"
+          [(ngModel)]="funcionarios.admissao"
+          name="admissao"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nascimento</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerFim"
+          [(ngModel)]="funcionarios.nascimento"
+          name="nascimento"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFim></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          placeholder="Telefone"
+          [(ngModel)]="funcionarios.tel1"
+          name="tel1"
+          mask="(00) 0 0000-0000"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Genero</mat-label>
+        <mat-select
+          [(ngModel)]="funcionarios.genero"
+          name="genero"
+        >
+          <mat-option *ngFor="let genero of generoList" [value]="genero">
+            {{genero}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Estado Civil</mat-label>
+        <mat-select
+        [(ngModel)]="funcionarios.estadoCivil"
+        name="estadoCivil"
+      >
+        <mat-option *ngFor="let estadoCivil of estadoCivilList" [value]="estadoCivil">
+          {{estadoCivil}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Grau</mat-label>
+        <mat-select
+        [(ngModel)]="funcionarios.grau"
+        name="grau"
+      >
+        <mat-option *ngFor="let grau of grauList" [value]="grau">
+          {{grau}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Email"
+          [(ngModel)]="funcionarios.email"
+          name="email"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          [(ngModel)]="funcionarios.cidade"
+          name="cidade"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="UF"
+          [(ngModel)]="funcionarios.uf"
+          name="uf"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Empresa</mat-label>
+        <mat-select [(ngModel)]="funcionarios.idEmpresa" name="idEmpresa">
+          <mat-option *ngFor="let empresa of empresas" [value]="empresa.id">
+            {{ empresa.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Centro de Custo</mat-label>
+        <mat-select [(ngModel)]="funcionarios.idCentroCusto" name="idCentroCusto">
+          <mat-option *ngFor="let centroCusto of centrosCusto" [value]="centroCusto.id">
+            {{ centroCusto.numero }} - {{ centroCusto.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cargo</mat-label>
+        <mat-select [(ngModel)]="funcionarios.idCargo" name="idCargo">
+          <mat-option *ngFor="let cargo of cargos" [value]="cargo.id">
+            {{ cargo.descricao }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="createFuncionario()">Salvar</button>
+
+    <button mat-raised-button (click)="cancelFuncionario()">Cancelar</button>
+  </div>
+</mat-card>
+
+
+
+

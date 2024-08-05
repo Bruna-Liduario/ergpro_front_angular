@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-title class="titulo">Alterar Centro de Custo</mat-card-title>
+  <form>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Numero do Centro de Custo"
+          [(ngModel)]="centroCusto.numero"
+          name="numero"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          [(ngModel)]="centroCusto.descricao"
+          name="descricao"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="pickerInicio"
+          placeholder="Data de Início"
+          [(ngModel)]="centroCusto.datainicio"
+          name="datainicio"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="pickerFim"
+          placeholder="Data de Fim"
+          [(ngModel)]="centroCusto.datafim"
+          name="datafim"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFim></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field>
+        <mat-select
+          placeholder="Status"
+          [(ngModel)]="centroCusto.status"
+          name="status"
+        >
+          <mat-option *ngFor="let status of statusList" [value]="status">{{
+            status
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="updateCentoCusto()">Atualizar</button>
+
+    <button mat-raised-button (click)="cancelCentroCusto()">Cancelar</button>
+  </div>
+</mat-card>
+

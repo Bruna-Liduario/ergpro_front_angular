@@ -1,0 +1,10 @@
+.filter-container {
+  padding-left: 30px;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os campos se movam para a linha seguinte, se necessário */
+  gap: 20px; /* Espaço entre os campos de filtro */
+}
+
+.filter-container mat-form-field {
+  margin-bottom: 10px; /* Espaço abaixo de cada campo de filtro */
+}
