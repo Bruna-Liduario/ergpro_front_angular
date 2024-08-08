@@ -25,8 +25,8 @@ export class ApontamentoUpdateComponent implements OnInit {
 
     local: '',
     data: new Date(),
-    minutos: 0,
-    minutosExtra: 0,
+    minutosSt: '',
+    minutosextraSt: '',
     observacao: ''
   }
 

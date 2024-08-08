@@ -41,62 +41,73 @@
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="nomeFuncionario">
         <th mat-header-cell *matHeaderCellDef>Nome Funcionario</th>
         <td mat-cell *matCellDef="let row">{{ row.nomeFuncionario }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="descricaoOrdemServico">
         <th mat-header-cell *matHeaderCellDef>Ordem de Servico</th>
         <td mat-cell *matCellDef="let row">{{ row.descricaoOrdemServico }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="centroCusto">
         <th mat-header-cell *matHeaderCellDef>Centro de Custo</th>
         <td mat-cell *matCellDef="let row">{{ row.centroCusto }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="descricaoTipoServico">
         <th mat-header-cell *matHeaderCellDef>Tipo de Serviço</th>
         <td mat-cell *matCellDef="let row">{{ row.descricaoTipoServico }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="descricaoAtividade">
         <th mat-header-cell *matHeaderCellDef>Atividade</th>
         <td mat-cell *matCellDef="let row">{{ row.descricaoAtividade }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="local">
         <th mat-header-cell *matHeaderCellDef>Local</th>
         <td mat-cell *matCellDef="let row">{{ row.local }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <ng-container matColumnDef="data">
         <th mat-header-cell *matHeaderCellDef>Data</th>
         <td mat-cell *matCellDef="let row">{{ row.data | date: 'dd/MM/yyyy' }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <ng-container matColumnDef="minutos">
+      <ng-container matColumnDef="minutosSt">
         <th mat-header-cell *matHeaderCellDef>Horas Normais</th>
-        <td mat-cell *matCellDef="let row">{{ row.minutos }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.minutosSt }}</td>
+        <td mat-footer-cell *matFooterCellDef>Total Horas Normais: {{ formatMinutesToHours(minutosTotal) }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="minutosExtra">
+      <ng-container matColumnDef="minutosextraSt">
         <th mat-header-cell *matHeaderCellDef>Horas Extras</th>
-        <td mat-cell *matCellDef="let row">{{ row.minutosExtra }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.minutosextraSt }}</td>
+        <td mat-footer-cell *matFooterCellDef>Total Extra: {{ formatMinutesToHours(minutosExtraTotal) }}</td>
       </ng-container>
 
       <ng-container matColumnDef="observacao">
         <th mat-header-cell *matHeaderCellDef>Observação</th>
         <td mat-cell *matCellDef="let row">{{ row.observacao }}</td>
+        <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 
     </table>
 

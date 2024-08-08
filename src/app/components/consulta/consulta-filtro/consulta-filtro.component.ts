@@ -16,10 +16,11 @@ export class ConsultaFiltroComponent implements OnInit {
   displayedColumns = [
     'id', 'nomeFuncionario', 'descricaoOrdemServico',
     'centroCusto', 'descricaoTipoServico', 'descricaoAtividade',
-    'local', 'data', 'minutos', 'minutosExtra', 'observacao'
+    'local', 'data', 'minutosSt', 'minutosextraSt', 'observacao'
   ];
 
-
+  minutosTotal: number = 0;
+  minutosExtraTotal: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -40,15 +41,14 @@ export class ConsultaFiltroComponent implements OnInit {
 
   }
 
-
   applyFilter(): void {
     if (this.filtersAreEmpty()) {
       this.apontamentosind.data = [];   // Limpa a tabela se o filtro estiver vazio
-
     } else {
       this.apontamentoService.read().subscribe(apontamentos => {
         this.apontamentosind.data = apontamentos;
         this.apontamentosind.paginator = this.paginator;
+
 
           this.apontamentosind.filterPredicate = (data: ApontamentoInd, filter: string) => {
             const filters = JSON.parse(filter);
@@ -66,9 +66,11 @@ export class ConsultaFiltroComponent implements OnInit {
           };
 
         this.apontamentosind.filter = JSON.stringify(this.filters);
+        this.calculateTotals(this.apontamentosind.filteredData);
       });
     }
   }
+
 
   onFilterChange(): void {
     this.applyFilter();
@@ -78,4 +80,19 @@ export class ConsultaFiltroComponent implements OnInit {
     return Object.values(this.filters).every(value => value === '');
   }
 
+  calculateTotals(apontamentos: ApontamentoInd[]): void {
+    this.minutosTotal = 0;
+    this.minutosExtraTotal = 0;
+    apontamentos.forEach(apontamento => {
+    this.minutosTotal += apontamento['minutos'];
+    this.minutosExtraTotal += apontamento['minutosExtra'];
+    });
+    }
+
+
+    formatMinutesToHours(minutes: number): string {
+      const hours = Math.floor(minutes / 60);
+      const remainingMinutes = minutes % 60;
+      return `${hours}h ${remainingMinutes}m`;
+      }
 }

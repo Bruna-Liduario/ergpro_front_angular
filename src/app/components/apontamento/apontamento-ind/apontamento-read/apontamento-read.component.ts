@@ -14,7 +14,7 @@ export class ApontamentoReadComponent implements OnInit {
   apontamentosind: MatTableDataSource<ApontamentoInd> = new MatTableDataSource();
   displayedColumns = ['id','nomeFuncionario', 'descricaoOrdemServico',
     'centroCusto', 'descricaoTipoServico', 'descricaoAtividade',
-    'local', 'data', 'minutos', 'minutosExtra', 'observacao',  'action']
+    'local', 'data', 'minutosSt', 'minutosextraSt', 'observacao',  'action']
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 

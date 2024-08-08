@@ -6,13 +6,13 @@ export interface ApontamentoInd {
   idOrdemServico: string
   idAtividade: string
 
-  descricaoCentroCusto?: string; // Nova propriedade
-  descricaoTipoServico?: string; // Nova propriedade
+  descricaoCentroCusto?: string;
+  descricaoTipoServico?: string;
 
   local: string
   data: Date
-  minutos: number
-  minutosExtra: number
+  minutosSt: string
+  minutosextraSt: string
   observacao: string
 
   [key: string]: any;

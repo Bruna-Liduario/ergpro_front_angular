@@ -14,10 +14,9 @@ import { TipoServicoService } from '../../../tipo-servico/tipo-servico.service';
 @Component({
   selector: 'app-apontamento-create',
   templateUrl: './apontamento-create.component.html',
-  styleUrl: './apontamento-create.component.css'
+  styleUrl: './apontamento-create.component.css',
 })
-export class ApontamentoCreateComponent implements OnInit{
-
+export class ApontamentoCreateComponent implements OnInit {
   apontamentosind: ApontamentoInd = {
     idFuncionarios: '',
     idOrdemServico: '',
@@ -25,46 +24,41 @@ export class ApontamentoCreateComponent implements OnInit{
 
     local: '',
     data: new Date(),
-    minutos: 0,
-    minutosExtra: 0,
-    observacao: ''
-  }
-
+    minutosSt: '',
+    minutosextraSt: '',
+    observacao: '',
+  };
 
   funcionarios: Funcionario[] = [];
   ordemServico: OrdemServico[] = [];
   atividades: Atividade[] = [];
 
-  centrosCusto: any[] = []; // declare a propriedade centrosCusto
-  tiposServicos: any[] = []; // declare a propriedade tiposServicos
+  centrosCusto: any[] = [];
+  tiposServicos: any[] = [];
 
-
-  constructor(private apontamentoService: ApontamentoService,
+  constructor(
+    private apontamentoService: ApontamentoService,
     private router: Router,
     private funcionarioService: FuncionarioService,
     private ordemServicoService: OrdemServicoService,
     private atividadeService: AtividadeService,
     private centroCustoService: CentroCustoService,
     private tipoServicoService: TipoServicoService
+  ) {}
 
-   ){}
-
-   ngOnInit(): void {
-     this.funcionarioService.read().subscribe(funcionario => {
+  ngOnInit(): void {
+    this.funcionarioService.read().subscribe((funcionario) => {
       this.funcionarios = funcionario;
-     })
-     this.ordemServicoService.read().subscribe(ordemServico => {
+    });
+    this.ordemServicoService.read().subscribe((ordemServico) => {
       this.ordemServico = ordemServico;
-     })
-     this.atividadeService.read().subscribe(atividade => {
+    });
+    this.atividadeService.read().subscribe((atividade) => {
       this.atividades = atividade;
-     })
+    });
+  }
 
-   }
-
-
-
-   createApontamento(): void {
+  createApontamento(): void {
     if (this.apontamentosind) {
       this.apontamentoService.create(this.apontamentosind).subscribe({
         next: () => {
@@ -80,34 +74,38 @@ export class ApontamentoCreateComponent implements OnInit{
   }
 
   cancelApontamento(): void {
-    this.router.navigate(['/apontamentos'])
+    this.router.navigate(['/apontamentos']);
   }
-
 
   selecionarOrdemServico(idOrdemServico: string): void {
-    this.ordemServicoService.readById(idOrdemServico).subscribe(ordemServico => {
-      console.log('Ordem de Serviço:', ordemServico);
-      if (ordemServico) {
-        // Buscar detalhes do Centro de Custo
-        this.centroCustoService.readById(ordemServico.idCentroCusto).subscribe(centroCusto => {
-          this.apontamentosind.descricaoCentroCusto = `${centroCusto.numero} - ${centroCusto.descricao}`;
-        });
-
-        // Buscar detalhes do Tipo de Serviço
-        let tipoServico: any; // declare a variável aqui
-        this.tipoServicoService.readById(ordemServico.idTipoServico).subscribe(tipoServicoResponse => {
-          tipoServico = tipoServicoResponse; // atribuir o valor à variável
-          this.apontamentosind.descricaoTipoServico = tipoServico.descricao;
-
-          // Recuperar atividades relacionadas ao tipo de serviço
-          this.atividadeService.getAtividadeByTipoServico(tipoServico.id)
-           .subscribe((atividades: Atividade[]) => {
-              this.atividades = atividades;
+    this.ordemServicoService
+      .readById(idOrdemServico)
+      .subscribe((ordemServico) => {
+        console.log('Ordem de Serviço:', ordemServico);
+        if (ordemServico) {
+          // Buscar detalhes do Centro de Custo
+          this.centroCustoService
+            .readById(ordemServico.idCentroCusto)
+            .subscribe((centroCusto) => {
+              this.apontamentosind.descricaoCentroCusto = `${centroCusto.numero} - ${centroCusto.descricao}`;
             });
-        });
-      }
-    });
+
+          // Buscar detalhes do Tipo de Serviço
+          let tipoServico: any; // declare a variável aqui
+          this.tipoServicoService
+            .readById(ordemServico.idTipoServico)
+            .subscribe((tipoServicoResponse) => {
+              tipoServico = tipoServicoResponse; // atribuir o valor à variável
+              this.apontamentosind.descricaoTipoServico = tipoServico.descricao;
+
+              // Recuperar atividades relacionadas ao tipo de serviço
+              this.atividadeService
+                .getAtividadeByTipoServico(tipoServico.id)
+                .subscribe((atividades: Atividade[]) => {
+                  this.atividades = atividades;
+                });
+            });
+        }
+      });
   }
-
-
 }
