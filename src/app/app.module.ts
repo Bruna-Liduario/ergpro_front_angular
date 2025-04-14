@@ -19,7 +19,7 @@ import { EmpresaCreateComponent } from './components/empresa/empresa-create/empr
 import { MatButtonModule } from '@angular/material/button'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -97,11 +97,14 @@ import { AssociacoesComponent } from './views/associacoes/associacoes.component'
 import { CentrocustoTiposervicoComponent } from './views/centrocusto-tiposervico/centrocusto-tiposervico.component';
 import { CentrocustoTiposervicoCreateComponent } from './components/centrocusto-tiposervico/centrocusto-tiposervico-create/centrocusto-tiposervico-create.component';
 import { LoginComponent } from './views/login/login.component';
-
-
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { MatIconModule } from '@angular/material/icon';
+import { RelatorioComponent } from './views/relatorio/relatorio.component';
+import { RelatorioConsultaComponent } from './components/relatorio/relatorio-consulta/relatorio-consulta.component';
+import { AuthInterceptor } from './guards/auth.interceptor';
 
 registerLocaleData(localePt);
-
 
 
 @NgModule({
@@ -174,7 +177,10 @@ registerLocaleData(localePt);
     CentrocustoTiposervicoComponent,
     CentrocustoTiposervicoCreateComponent,
     LoginComponent,
-
+    LoginLayoutComponent,
+    MainLayoutComponent,
+    RelatorioComponent,
+    RelatorioConsultaComponent,
   ],
   imports: [
     BrowserModule,
@@ -198,13 +204,15 @@ registerLocaleData(localePt);
     MatNativeDateModule,
     NgxMaskDirective,
     NgxMaskPipe,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     provideEnvironmentNgxMask(),
     { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 
   ],
   bootstrap: [AppComponent]

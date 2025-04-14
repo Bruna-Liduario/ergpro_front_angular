@@ -52,7 +52,7 @@ export class EmpresaUpdateComponent implements OnInit {
       this.empresaService.update(this.empresa).subscribe({
         next: () => {
           this.empresaService.showMessage('Empresa atualizada com sucesso');
-          this.router.navigate(['/empresas']);
+          this.router.navigate(['/app/empresas']);
         },
         error: (err) => {
           this.empresaService.showMessage(err);
@@ -64,7 +64,7 @@ export class EmpresaUpdateComponent implements OnInit {
   }
 
   cancelEmpresa(): void {
-    this.router.navigate(['/empresas'])
+    this.router.navigate(['/app/empresas'])
    }
 
    getMask(tel: string): string {

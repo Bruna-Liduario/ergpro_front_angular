@@ -77,7 +77,7 @@ export class FuncionarioCreateComponent implements OnInit {
       this.funcionarioService.create(this.funcionarios).subscribe({
         next: () => {
           this.funcionarioService.showMessage('Funcionário salvo com sucesso');
-          this.router.navigate(['/funcionarios']);
+          this.router.navigate(['/app/funcionarios']);
         },
         error: (err) => {
           this.funcionarioService.showMessage(err);
@@ -89,7 +89,7 @@ export class FuncionarioCreateComponent implements OnInit {
   }
 
   cancelFuncionario(): void {
-    this.router.navigate(['/funcionarios'])
+    this.router.navigate(['/app/funcionarios'])
   }
 
 

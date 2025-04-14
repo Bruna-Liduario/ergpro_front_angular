@@ -24,7 +24,7 @@ export class OrdemServicoComponent {
     }
 
     navigateToOrdemServicoCreate(): void {
-      this.router.navigate(['/ordemservico/create'])
+      this.router.navigate(['/app/ordemservico/create'])
     }
 
 }

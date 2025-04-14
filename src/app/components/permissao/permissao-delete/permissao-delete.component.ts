@@ -37,7 +37,7 @@ export class PermissaoDeleteComponent implements OnInit {
         this.permissaoService.delete(this.permissoes.id).subscribe({
           next: () => {
             this.permissaoService.showMessage('Permissão excluída com sucesso!');
-            this.router.navigate(['/permissoes']);
+            this.router.navigate(['/app/permissoes']);
           },
           error: (err) => {
             this.permissaoService.showMessage(err);
@@ -50,6 +50,6 @@ export class PermissaoDeleteComponent implements OnInit {
 
 
     cancelPermissao(): void {
-      this.router.navigate(['/permissoes']);
+      this.router.navigate(['/app/permissoes']);
     }
 }

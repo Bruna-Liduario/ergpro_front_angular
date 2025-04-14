@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title class="titulo">Filtrar Apontamentos</mat-card-title>
+
+  <form>
+    <!-- Campo de seleção de funcionário -->
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Funcionário</mat-label>
+        <mat-select [(ngModel)]="selectedFuncionarioId" name="funcionario">
+          <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">
+            {{ funcionario.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Campo de seleção de data de início -->
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Data Início</mat-label>
+        <input matInput [matDatepicker]="pickerInicio" [(ngModel)]="dataInicio" name="dataInicio">
+        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Campo de seleção de data de fim -->
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Data Fim</mat-label>
+        <input matInput [matDatepicker]="pickerFim" [(ngModel)]="dataFim" name="dataFim">
+        <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFim></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Botão para gerar o PDF -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="gerarRelatorioPDF()">Gerar Relatório em PDF</button>
+    </div>
+  </form>
+</mat-card>

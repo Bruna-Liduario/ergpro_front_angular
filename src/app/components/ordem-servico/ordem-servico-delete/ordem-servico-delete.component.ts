@@ -38,7 +38,7 @@ export class OrdemServicoDeleteComponent implements OnInit {
       this.ordemServicoService.delete(this.ordemServico.id).subscribe({
         next: () => {
           this.ordemServicoService.showMessage('Ordem de Servico excluído com sucesso!');
-          this.router.navigate(['/ordemservico']);
+          this.router.navigate(['/app/ordemservico']);
         },
         error: (err) => {
           this.ordemServicoService.showMessage(err);
@@ -51,6 +51,6 @@ export class OrdemServicoDeleteComponent implements OnInit {
 
 
   cancelOrdemServico(): void {
-    this.router.navigate(['/ordemservico']);
+    this.router.navigate(['/app/ordemservico']);
   }
 }

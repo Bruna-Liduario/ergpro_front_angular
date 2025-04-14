@@ -44,7 +44,7 @@ export class EmpresaCreateComponent implements OnInit{
       this.empresaService.create(this.empresa).subscribe({
         next: () => {
           this.empresaService.showMessage('Empresa criada com sucesso!');
-          this.router.navigate(['/empresas']);
+          this.router.navigate(['/app/empresas']);
         },
         error: (err) => {
           this.empresaService.showMessage(err);
@@ -56,7 +56,7 @@ export class EmpresaCreateComponent implements OnInit{
   }
 
   cancelEmpresa(): void {
-   this.router.navigate(['/empresas'])
+   this.router.navigate(['/app/empresas'])
   }
 
   getMask(tel: string): string {

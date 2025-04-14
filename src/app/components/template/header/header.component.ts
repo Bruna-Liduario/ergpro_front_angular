@@ -1,6 +1,7 @@
 import { HeaderService } from './header.service';
 import { HeaderData } from './header-data.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit{
 
-  constructor(private headerService: HeaderService){ }
+  constructor(private headerService: HeaderService,
+    private router: Router){ }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,12 @@ export class HeaderComponent implements OnInit{
 
   get routerUrl(): string{
     return this.headerService.headerData.routeUrl
+  }
+
+  // Função de logout
+  logout(): void {
+    sessionStorage.removeItem('token');
+    this.router.navigate(['/login']);  // Redireciona para a página de login
   }
 
 }

@@ -26,7 +26,7 @@ export class TipoServicoCreateComponent implements OnInit {
       this.tipoServicoService.create(this.tipoServico).subscribe({
         next: () => {
           this.tipoServicoService.showMessage('Tipo de Servico criado com sucesso!');
-          this.router.navigate(['/tiposervico']);
+          this.router.navigate(['/app/tiposervico']);
         },
         error: (err) => {
           this.tipoServicoService.showMessage(err);
@@ -38,7 +38,7 @@ export class TipoServicoCreateComponent implements OnInit {
   }
 
   cancelTipoServico(): void {
-    this.router.navigate(['/tiposervico']);
+    this.router.navigate(['/app/tiposervico']);
   }
 
 

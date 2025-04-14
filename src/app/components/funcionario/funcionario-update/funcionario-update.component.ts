@@ -87,7 +87,7 @@ export class FuncionarioUpdateComponent implements OnInit {
       this.funcionarioService.update(this.funcionarios).subscribe({
         next: () => {
           this.funcionarioService.showMessage('Funcionario atualizado com sucesso');
-          this.router.navigate(['/funcionarios']);
+          this.router.navigate(['/app/funcionarios']);
         },
         error: (err) => {
           this.funcionarioService.showMessage(err);
@@ -99,7 +99,7 @@ export class FuncionarioUpdateComponent implements OnInit {
   }
 
   cancelFuncionario(): void {
-    this.router.navigate(['/funcionarios'])
+    this.router.navigate(['/app/funcionarios'])
    }
 
 }

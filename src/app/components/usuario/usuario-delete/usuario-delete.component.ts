@@ -34,7 +34,7 @@ export class UsuarioDeleteComponent implements OnInit {
         this.usuarioService.delete(this.usuarios.id).subscribe({
           next: () => {
             this.usuarioService.showMessage('Usuário excluído com sucesso!');
-            this.router.navigate(['/usuarios']);
+            this.router.navigate(['/app/usuarios']);
           },
           error: (err) => {
             this.usuarioService.showMessage(err);
@@ -46,6 +46,6 @@ export class UsuarioDeleteComponent implements OnInit {
     }
 
     cancelUsuario(): void {
-      this.router.navigate(['/usuarios']);
+      this.router.navigate(['/app/usuarios']);
     }
 }

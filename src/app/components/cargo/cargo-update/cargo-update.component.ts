@@ -34,7 +34,7 @@ export class CargoUpdateComponent implements OnInit {
       this.cargoService.update(this.cargos).subscribe({
         next: () => {
           this.cargoService.showMessage('Cargo atualizado com sucesso');
-          this.router.navigate(['/cargos']);
+          this.router.navigate(['/app/cargos']);
         },
         error: (err) => {
           this.cargoService.showMessage(err);
@@ -46,7 +46,7 @@ export class CargoUpdateComponent implements OnInit {
   }
 
   cancelCargo(): void {
-    this.router.navigate(['/cargos'])
+    this.router.navigate(['/app/cargos'])
    }
 
 }

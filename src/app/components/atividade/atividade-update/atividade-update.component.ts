@@ -34,7 +34,7 @@ export class AtividadeUpdateComponent implements OnInit {
         this.atividadeService.update(this.atividades).subscribe({
           next: () => {
             this.atividadeService.showMessage('Atividade atualizada com sucesso');
-            this.router.navigate(['/atividades']);
+            this.router.navigate(['/app/atividades']);
           },
           error: (err) => {
             this.atividadeService.showMessage(err);
@@ -46,7 +46,7 @@ export class AtividadeUpdateComponent implements OnInit {
     }
 
     cancelAtividades(): void {
-      this.router.navigate(['/atividades'])
+      this.router.navigate(['/app/atividades'])
      }
 
 

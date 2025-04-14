@@ -25,7 +25,7 @@ export class AtividadeCreateComponent implements OnInit {
       this.atividadeService.create(this.atividades).subscribe({
         next: () => {
           this.atividadeService.showMessage('Atividade criada com sucesso!');
-          this.router.navigate(['/atividades']);
+          this.router.navigate(['/app/atividades']);
         },
         error: (err) => {
           this.atividadeService.showMessage(err);
@@ -37,7 +37,7 @@ export class AtividadeCreateComponent implements OnInit {
   }
 
   cancelAtividades(): void {
-    this.router.navigate(['/atividades']);
+    this.router.navigate(['/app/atividades']);
   }
 
 }

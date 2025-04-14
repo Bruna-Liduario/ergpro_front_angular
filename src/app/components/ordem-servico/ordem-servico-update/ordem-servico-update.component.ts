@@ -58,7 +58,7 @@ export class OrdemServicoUpdateComponent implements OnInit {
       this.ordemServicoService.update(this.ordemServico).subscribe({
         next: () => {
           this.ordemServicoService.showMessage('Ordem de Serviço atualizado com sucesso');
-          this.router.navigate(['/ordemservico']);
+          this.router.navigate(['/app/ordemservico']);
         },
         error: (err) => {
           this.ordemServicoService.showMessage(err);
@@ -70,7 +70,7 @@ export class OrdemServicoUpdateComponent implements OnInit {
   }
 
   cancelOrdemServico(): void {
-    this.router.navigate(['/ordemservico'])
+    this.router.navigate(['/app/ordemservico'])
    }
 
    carregarTiposServicosPorCentroCusto(idCentroCusto: number): void {

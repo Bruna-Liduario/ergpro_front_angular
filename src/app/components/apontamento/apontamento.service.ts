@@ -48,6 +48,17 @@ export class ApontamentoService {
   }
 
 
+readByFuncionario(idFuncionario: string, dataInicio: Date, dataFim: Date): Observable<ApontamentoInd[]> {
+  const url = `${this.baseUrl}/apontamentos/funcionario/${idFuncionario}`;
+  // Convertendo as datas para o formato ISO, que é esperado pelo backend
+  const params = {
+    startDate: dataInicio.toISOString().split('T')[0], // Pega apenas a data (YYYY-MM-DD)
+    endDate: dataFim.toISOString().split('T')[0]
+  };
+
+  return this.http.get<ApontamentoInd[]>(url, { params });
+}
+
 
   update(apontamentos: ApontamentoInd): Observable<ApontamentoInd> {
     const url = `${this.baseUrl}/apontamentos/atualizar`;
@@ -78,5 +89,7 @@ export class ApontamentoService {
       })
     );
   }
+
+
 
 }

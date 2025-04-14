@@ -34,7 +34,7 @@ export class AtividadeDeleteComponent implements OnInit {
         this.atividadeService.delete(this.atividades.id).subscribe({
           next: () => {
             this.atividadeService.showMessage('Atividade excluída com sucesso!');
-            this.router.navigate(['/atividades']);
+            this.router.navigate(['/app/atividades']);
           },
           error: (err) => {
             this.atividadeService.showMessage(err);
@@ -47,7 +47,7 @@ export class AtividadeDeleteComponent implements OnInit {
 
 
     cancelAtividades(): void {
-      this.router.navigate(['/atividades']);
+      this.router.navigate(['/app/atividades']);
     }
 
 }

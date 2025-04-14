@@ -19,7 +19,7 @@ export class AtividadeComponent {
     }
 
     navigateToAtividadeCreate(): void {
-      this.router.navigate(['/atividades/create'])
+      this.router.navigate(['/app/atividades/create'])
     }
 
 }

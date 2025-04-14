@@ -36,7 +36,7 @@ export class TipoServicoUpdateComponent implements OnInit {
       this.tipoServicoService.update(this.tipoServico).subscribe({
         next: () => {
           this.tipoServicoService.showMessage('Tipo de Servico atualizado com sucesso');
-          this.router.navigate(['/tiposervico']);
+          this.router.navigate(['/app/tiposervico']);
         },
         error: (err) => {
           this.tipoServicoService.showMessage(err);
@@ -48,7 +48,7 @@ export class TipoServicoUpdateComponent implements OnInit {
   }
 
   cancelTipoServico(): void {
-    this.router.navigate(['/tiposervico'])
+    this.router.navigate(['/app/tiposervico'])
    }
 
 }

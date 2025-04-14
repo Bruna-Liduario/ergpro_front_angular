@@ -45,7 +45,7 @@ export class CentroCustoUpdateComponent implements OnInit {
       this.centroCustoService.update(this.centroCusto).subscribe({
         next: () => {
           this.centroCustoService.showMessage('Centro de Custo atualizado com sucesso');
-          this.router.navigate(['/centrocusto']);
+          this.router.navigate(['/app/centrocusto']);
         },
         error: (err) => {
           this.centroCustoService.showMessage(err);
@@ -57,7 +57,7 @@ export class CentroCustoUpdateComponent implements OnInit {
   }
 
   cancelCentroCusto(): void {
-    this.router.navigate(['/centrocusto'])
+    this.router.navigate(['/app/centrocusto'])
    }
 
 }

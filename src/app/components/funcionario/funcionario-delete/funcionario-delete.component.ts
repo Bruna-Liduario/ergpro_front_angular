@@ -49,21 +49,21 @@ export class FuncionarioDeleteComponent implements OnInit {
       if (this.funcionarios && this.funcionarios.id) {
         this.funcionarioService.delete(this.funcionarios.id).subscribe({
           next: () => {
-            this.funcionarioService.showMessage('Empresa excluída com sucesso!');
-            this.router.navigate(['/empresas']);
+            this.funcionarioService.showMessage('Funcionario excluído com sucesso!');
+            this.router.navigate(['/app/funcionarios']);
           },
           error: (err) => {
             this.funcionarioService.showMessage(err);
           },
         });
       } else {
-        console.error('ID da empresa é nulo ou indefinido');
+        console.error('ID do funcionario é nulo ou indefinido');
       }
     }
 
 
     cancelFuncionario(): void {
-      this.router.navigate(['/funcionarios']);
+      this.router.navigate(['/app/funcionarios']);
     }
 
 }

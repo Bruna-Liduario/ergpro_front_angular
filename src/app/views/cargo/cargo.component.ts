@@ -23,7 +23,7 @@ export class CargoComponent {
   }
 
   navigateToCargosCreate(): void {
-    this.router.navigate(['/cargos/create'])
+    this.router.navigate(['/app/cargos/create'])
   }
 
 }

@@ -24,6 +24,6 @@ export class CentroCustoComponent {
   }
 
   navigateToCentroCustoCreate(): void {
-    this.router.navigate(['/centrocusto/create'])
+    this.router.navigate(['/app/centrocusto/create'])
   }
 }

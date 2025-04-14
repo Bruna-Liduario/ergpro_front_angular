@@ -47,7 +47,7 @@ export class EmpresaDeleteComponent implements OnInit {
       this.empresaService.delete(this.empresa.id).subscribe({
         next: () => {
           this.empresaService.showMessage('Empresa excluída com sucesso!');
-          this.router.navigate(['/empresas']);
+          this.router.navigate(['/app/empresas']);
         },
         error: (err) => {
           this.empresaService.showMessage(err);
@@ -60,6 +60,6 @@ export class EmpresaDeleteComponent implements OnInit {
 
 
   cancelEmpresa(): void {
-    this.router.navigate(['/empresas']);
+    this.router.navigate(['/app/empresas']);
   }
 }

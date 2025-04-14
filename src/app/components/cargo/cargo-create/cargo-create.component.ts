@@ -26,7 +26,7 @@ export class CargoCreateComponent implements OnInit {
       this.cargoService.create(this.cargos).subscribe({
         next: () => {
           this.cargoService.showMessage('Cargo criado com sucesso!');
-          this.router.navigate(['/cargos']);
+          this.router.navigate(['/app/cargos']);
         },
         error: (err) => {
           this.cargoService.showMessage(err);
@@ -39,6 +39,6 @@ export class CargoCreateComponent implements OnInit {
 
 
   cancelCargos(): void {
-    this.router.navigate(['/cargos'])
+    this.router.navigate(['/app/cargos'])
   }
 }

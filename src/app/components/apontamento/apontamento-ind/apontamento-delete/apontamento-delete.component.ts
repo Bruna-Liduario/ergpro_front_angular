@@ -46,7 +46,7 @@ export class ApontamentoDeleteComponent implements OnInit {
           this.apontamentoService.showMessage(
             'Apontamento excluído com sucesso!'
           );
-          this.router.navigate(['/apontamentosind/create']);
+          this.router.navigate(['/app/apontamentosind/create']);
         },
         error: (err) => {
           this.apontamentoService.showMessage(err);
@@ -58,6 +58,6 @@ export class ApontamentoDeleteComponent implements OnInit {
   }
 
   cancelApontamento(): void {
-    this.router.navigate(['/apontamentosind/create']);
+    this.router.navigate(['/app/apontamentosind/create']);
   }
 }

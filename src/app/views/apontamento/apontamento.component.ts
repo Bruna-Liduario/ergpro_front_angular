@@ -19,13 +19,11 @@ export class ApontamentoComponent {
     }
 
     navigateToApontamentoIndividualCreate(): void {
-      this.router.navigate(['/apontamentosind/create'])
+      this.router.navigate(['/app/apontamentosind/create'])
     }
 
     navigateToApontamentoEquipeCreate(): void {
       this.router.navigate(['/apontamentosequipe/create'])
     }
-
-
 
 }

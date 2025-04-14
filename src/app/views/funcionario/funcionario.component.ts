@@ -23,6 +23,6 @@ export class FuncionarioComponent implements OnInit {
 }
 
 navigateToFuncionarioCreate(): void {
-  this.router.navigate(['/funcionarios/create'])
+  this.router.navigate(['/app/funcionarios/create'])
 }
 }

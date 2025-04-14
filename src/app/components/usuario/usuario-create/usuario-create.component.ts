@@ -34,7 +34,7 @@ export class UsuarioCreateComponent implements OnInit{
     this.usuarioService.registerUser(this.usuarios).subscribe(
       () => {
         this.usuarioService.showMessage('Usuário cadastrado com sucesso!');
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/app/usuarios']);
       },
       (error) => {
         this.usuarioService.showMessage('Erro ao cadastrar usuário.');
@@ -44,7 +44,7 @@ export class UsuarioCreateComponent implements OnInit{
   }
 
   cancelUsuario(): void {
-    this.router.navigate(['/usuarios']);
+    this.router.navigate(['/app/usuarios']);
   }
 
 

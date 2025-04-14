@@ -37,7 +37,7 @@ export class TipoServicoDeleteComponent implements OnInit {
       this.tipoServicoService.delete(this.tipoServico.id).subscribe({
         next: () => {
           this.tipoServicoService.showMessage('Tipo de serviço excluído com sucesso!');
-          this.router.navigate(['/tiposervico']);
+          this.router.navigate(['/app/tiposervico']);
         },
         error: (err) => {
           this.tipoServicoService.showMessage(err);
@@ -50,7 +50,7 @@ export class TipoServicoDeleteComponent implements OnInit {
 
 
   cancelTipoServico(): void {
-    this.router.navigate(['/tiposervico']);
+    this.router.navigate(['/app/tiposervico']);
   }
 
 }

@@ -19,11 +19,11 @@ export class AssociacoesComponent {
     }
 
     navigateToTipoServicoAtividadeCreate(): void {
-      this.router.navigate(['/tipo-servico-atividade'])
+      this.router.navigate(['/app/tipo-servico-atividade'])
     }
 
     navigateToCentroCustoTipoServicoCreate(): void {
-      this.router.navigate(['/centrocusto-tiposervico'])
+      this.router.navigate(['/app/centrocusto-tiposervico'])
     }
 
 

@@ -62,7 +62,7 @@ export class TiposervicoatividadeCreateComponent implements OnInit {
         this.tipoServicoAtividadeService.createTipoServicoAtividade(tipoServicoAtividade).subscribe({
           next: () => {
             this.tipoServicoAtividadeService.showMessage('Associação salva com sucesso!')
-            this.router.navigate(['/associacoes']);
+            this.router.navigate(['/app/associacoes']);
           },
           error: (err) => {
             this.tipoServicoAtividadeService.showMessage(err);
@@ -75,6 +75,6 @@ export class TiposervicoatividadeCreateComponent implements OnInit {
   }
 
   cancelAssociacao(): void {
-    this.router.navigate(['/associacoes']);
+    this.router.navigate(['/app/associacoes']);
   }
 }

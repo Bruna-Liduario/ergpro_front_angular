@@ -54,10 +54,28 @@ import { AssociacoesComponent } from './views/associacoes/associacoes.component'
 import { CentrocustoTiposervicoComponent } from './views/centrocusto-tiposervico/centrocusto-tiposervico.component';
 import { CentrocustoTiposervicoCreateComponent } from './components/centrocusto-tiposervico/centrocusto-tiposervico-create/centrocusto-tiposervico-create.component';
 import { LoginComponent } from './views/login/login.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { authGuard } from '../app/guards/auth.guard';
+import { usuarioNaoAutenticadoGuard } from './guards/usuario-nao-autenticado.guard';
+import { RelatorioComponent } from './views/relatorio/relatorio.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+
+  {
+    path: '',
+    component: LoginLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent, canActivate: [usuarioNaoAutenticadoGuard]},
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
+    ],
+  },
+  {
+    path: 'app',
+    component: MainLayoutComponent, // usa o layout principal
+    canActivate: [authGuard],
+    children: [
   { path: 'inicio', component: HomeComponent },
   { path: 'empresas', component: EmpresaComponent },
   { path: 'empresas/create', component: EmpresaCreateComponent },
@@ -110,12 +128,18 @@ const routes: Routes = [
   { path: 'associacoes', component: AssociacoesComponent },
   { path: 'centrocusto-tiposervico', component: CentrocustoTiposervicoComponent },
   { path: 'centrocusto-tiposervico/create', component: CentrocustoTiposervicoCreateComponent },
+  { path: 'relatorio', component: RelatorioComponent },
 
+    ]
+  },
+  { path: '**', redirectTo: 'login' },
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

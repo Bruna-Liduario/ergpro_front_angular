@@ -76,7 +76,7 @@ export class ApontamentoUpdateComponent implements OnInit {
       this.apontamentoService.update(this.apontamentosind).subscribe({
         next: () => {
           this.apontamentoService.showMessage('Apontamento atualizado com sucesso');
-          this.router.navigate(['/apontamentosind/create']);
+          this.router.navigate(['/app/apontamentosind/create']);
         },
         error: (err) => {
           this.apontamentoService.showMessage(err);
@@ -88,7 +88,7 @@ export class ApontamentoUpdateComponent implements OnInit {
   }
 
   cancelApontamento(): void {
-    this.router.navigate(['/apontamentosind/create'])
+    this.router.navigate(['/app/apontamentosind/create'])
    }
 
 

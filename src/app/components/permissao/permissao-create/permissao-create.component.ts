@@ -32,7 +32,7 @@ export class PermissaoCreateComponent implements OnInit {
     this.permissaoService.create(this.permissoes).subscribe(
       () => {
         this.permissaoService.showMessage('Permissão cadastrada com sucesso!');
-        this.router.navigate(['/permissoes']);
+        this.router.navigate(['/app/permissoes']);
       },
       (error) => {
         this.permissaoService.showMessage('Erro ao cadastrar Permissão.');
@@ -42,7 +42,7 @@ export class PermissaoCreateComponent implements OnInit {
   }
 
   cancelPermissao(): void {
-    this.router.navigate(['/permissoes']);
+    this.router.navigate(['/app/permissoes']);
   }
 
 }

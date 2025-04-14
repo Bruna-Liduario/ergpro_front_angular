@@ -1,7 +1,7 @@
 <mat-toolbar class="header mat-elevation-z4">
   <span>
     <a routerLink="/">
-      <img class="logo" src="/assets/ERG.png" alt="logo">
+      <img class="logo" src="/assets/relogio.jpg" alt="logo">
     </a>
   </span>
   <span class="title-group">
@@ -11,6 +11,9 @@
       </i>
       {{ title }}
     </a>
-
   </span>
+
+  <!-- Botão de Logout -->
+  <span class="spacer"></span> <!-- empurra o botão de logout para a direita -->
+  <button mat-button (click)="logout()">Logout</button>
 </mat-toolbar>

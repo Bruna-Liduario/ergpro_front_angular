@@ -24,7 +24,7 @@ export class PermissaoComponent {
   }
 
   navigateToPermissoesCreate(): void {
-    this.router.navigate(['/permissoes/create'])
+    this.router.navigate(['/app/permissoes/create'])
   }
 
 }

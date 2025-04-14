@@ -1,0 +1,34 @@
+
+
+.titulo {
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os campos */
+  width: 600px /* Certifique-se de que os campos ocupem toda a linha */
+}
+
+button {
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 200px; /* Aumenta a largura do botão */
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+mat-form-field {
+  flex: 1; /* Permite que o campo se expanda */
+  margin-left: 15px;
+}
+
+mat-card {
+  padding-top: 20px;
+}

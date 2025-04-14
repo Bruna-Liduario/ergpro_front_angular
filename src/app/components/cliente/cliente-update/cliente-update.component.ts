@@ -57,7 +57,7 @@ export class ClienteUpdateComponent implements OnInit {
       this.clienteService.update(this.cliente).subscribe({
         next: () => {
           this.clienteService.showMessage('Cliente atualizado com sucesso');
-          this.router.navigate(['/clientes']);
+          this.router.navigate(['/app/clientes']);
         },
         error: (err) => {
           this.clienteService.showMessage(err);
@@ -70,7 +70,7 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   cancelCliente(): void{
-    this.router.navigate(['/clientes'])
+    this.router.navigate(['/app/clientes'])
   }
 
 

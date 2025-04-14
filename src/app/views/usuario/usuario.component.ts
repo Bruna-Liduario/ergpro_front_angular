@@ -23,7 +23,7 @@ export class UsuarioComponent {
   }
 
   navigateToUsuarioCreate(): void {
-    this.router.navigate(['/usuarios/create'])
+    this.router.navigate(['/app/usuarios/create'])
   }
 
 }

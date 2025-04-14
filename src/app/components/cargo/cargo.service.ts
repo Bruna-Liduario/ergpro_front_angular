@@ -74,7 +74,7 @@ export class CargoService {
             console.error(errorMessage);
             return throwError(errorMessage);
           } else {
-            return throwError('Erro ao excluir centro de custo');
+            return throwError('Você não tem permissão de excluir Cargo');
           }
         })
       );

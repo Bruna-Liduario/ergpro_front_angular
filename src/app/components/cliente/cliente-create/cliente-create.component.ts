@@ -48,7 +48,7 @@ export class ClienteCreateComponent implements OnInit{
       this.clienteService.create(this.cliente).subscribe({
         next: () => {
           this.clienteService.showMessage('Cliente criado com sucesso!');
-          this.router.navigate(['/clientes']);
+          this.router.navigate(['/app/clientes']);
         },
         error: (err) => {
           this.clienteService.showMessage(err);
@@ -60,7 +60,7 @@ export class ClienteCreateComponent implements OnInit{
   }
 
   cancelCliente(): void {
-    this.router.navigate(['/clientes'])
+    this.router.navigate(['/app/clientes'])
   }
 
 

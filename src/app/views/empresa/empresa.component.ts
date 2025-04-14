@@ -22,7 +22,7 @@ export class EmpresaComponent implements OnInit {
   }
 
   navigateToEmpresaCreate(): void {
-    this.router.navigate(['/empresas/create'])
+    this.router.navigate(['/app/empresas/create'])
   }
 
 }

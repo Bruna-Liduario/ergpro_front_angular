@@ -40,7 +40,7 @@ export class CentroCustoDeleteComponent implements OnInit {
       this.centroCustoService.delete(this.centroCusto.id).subscribe({
         next: () => {
           this.centroCustoService.showMessage('Centro de Custo excluído com sucesso!');
-          this.router.navigate(['/centrocusto']);
+          this.router.navigate(['/app/centrocusto']);
         },
         error: (err) => {
           this.centroCustoService.showMessage(err);
@@ -53,7 +53,7 @@ export class CentroCustoDeleteComponent implements OnInit {
 
 
   cancelCentroCusto(): void {
-    this.router.navigate(['/centrocusto']);
+    this.router.navigate(['/app/centrocusto']);
   }
 
 }

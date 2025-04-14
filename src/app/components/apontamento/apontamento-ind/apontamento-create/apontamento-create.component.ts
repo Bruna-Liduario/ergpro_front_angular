@@ -63,6 +63,7 @@ export class ApontamentoCreateComponent implements OnInit {
       this.apontamentoService.create(this.apontamentosind).subscribe({
         next: () => {
           this.apontamentoService.showMessage('Apontamento salvo com sucesso');
+          this.router.navigate(['/app/apontamentos']);
         },
         error: (err) => {
           this.apontamentoService.showMessage(err);
@@ -74,7 +75,7 @@ export class ApontamentoCreateComponent implements OnInit {
   }
 
   cancelApontamento(): void {
-    this.router.navigate(['/apontamentos']);
+    this.router.navigate(['/app/apontamentos']);
   }
 
   selecionarOrdemServico(idOrdemServico: string): void {
@@ -91,7 +92,7 @@ export class ApontamentoCreateComponent implements OnInit {
             });
 
           // Buscar detalhes do Tipo de Serviço
-          let tipoServico: any; // declare a variável aqui
+          let tipoServico: any;
           this.tipoServicoService
             .readById(ordemServico.idTipoServico)
             .subscribe((tipoServicoResponse) => {

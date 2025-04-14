@@ -62,7 +62,7 @@ export class CentrocustoTiposervicoCreateComponent implements OnInit {
         this.centroCustoTipoServicoService.createCentroCustoTipoServico(centroCustoTipoServico).subscribe({
           next: () => {
             this.centroCustoTipoServicoService.showMessage('Associação salva com sucesso!')
-            this.router.navigate(['/associacoes']);
+            this.router.navigate(['/app/associacoes']);
           },
           error: (err) => {
             this.centroCustoTipoServicoService.showMessage(err);
@@ -75,7 +75,7 @@ export class CentrocustoTiposervicoCreateComponent implements OnInit {
   }
 
   cancelAssociacao(): void {
-    this.router.navigate(['/associacoes']);
+    this.router.navigate(['/app/associacoes']);
   }
 
 

@@ -25,7 +25,8 @@ export class ClienteReadComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private clienteService: ClienteService) {}
+  constructor(private clienteService: ClienteService) {
+  }
 
   ngOnInit(): void {
     this.clienteService.read().subscribe((clientes) => {

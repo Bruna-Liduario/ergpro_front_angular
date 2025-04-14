@@ -18,6 +18,6 @@ export class ClienteComponent {
  }
 
  navigateToClienteCreate(): void{
-  this.router.navigate(['/clientes/create'])
+  this.router.navigate(['/app/clientes/create'])
  }
 }

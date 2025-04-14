@@ -11,7 +11,7 @@
 }
 
 .header .logo {
-  max-height: 50px;
+  max-height: 70px;
 }
 
 .header .title-group {
@@ -20,4 +20,23 @@
 
 .header .title-group i {
   padding-right: 5px;
+}
+
+
+.header .spacer {
+  flex: 1;
+}
+
+button {
+  background-color: #4e85c9;
+  color: rgb(19, 19, 19);
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #1C3B63;
+  color: white;
 }

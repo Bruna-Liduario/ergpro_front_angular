@@ -34,7 +34,7 @@ export class CargoDeleteComponent implements OnInit {
       this.cargoService.delete(this.cargos.id).subscribe({
         next: () => {
           this.cargoService.showMessage('Cargo excluído com sucesso!');
-          this.router.navigate(['/cargos']);
+          this.router.navigate(['/app/cargos']);
         },
         error: (err) => {
           this.cargoService.showMessage(err);
@@ -47,7 +47,7 @@ export class CargoDeleteComponent implements OnInit {
 
 
   cancelCargos(): void {
-    this.router.navigate(['/cargos']);
+    this.router.navigate(['/app/cargos']);
   }
 
 }

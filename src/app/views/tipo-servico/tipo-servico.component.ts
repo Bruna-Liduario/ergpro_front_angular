@@ -23,7 +23,7 @@ export class TipoServicoComponent {
   }
 
   navigateToTipoServicoCreate(): void {
-    this.router.navigate(['/tiposervico/create'])
+    this.router.navigate(['/app/tiposervico/create'])
   }
 
 }

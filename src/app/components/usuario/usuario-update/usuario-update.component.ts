@@ -46,7 +46,7 @@ export class UsuarioUpdateComponent implements OnInit{
     this.usuarioService.update(usuario).subscribe({
       next: () => {
         this.usuarioService.showMessage('Usuário atualizado com sucesso');
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/app/usuarios']);
       },
       error: (err) => {
         this.usuarioService.showMessage(err);
@@ -56,7 +56,7 @@ export class UsuarioUpdateComponent implements OnInit{
 
 
   cancelUsuario(): void {
-    this.router.navigate(['/usuarios']);
+    this.router.navigate(['/app/usuarios']);
   }
 
 }

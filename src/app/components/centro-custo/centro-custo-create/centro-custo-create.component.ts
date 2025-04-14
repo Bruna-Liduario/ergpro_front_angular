@@ -34,7 +34,7 @@ export class CentroCustoCreateComponent implements OnInit{
       this.centroCustoService.create(this.centroCusto).subscribe({
         next: () => {
           this.centroCustoService.showMessage('Centro de Custo salvo com sucesso');
-          this.router.navigate(['/centrocusto']);
+          this.router.navigate(['/app/centrocusto']);
         },
         error: (err) => {
           this.centroCustoService.showMessage(err);
@@ -46,7 +46,7 @@ export class CentroCustoCreateComponent implements OnInit{
   }
 
   cancelCentroCusto(): void {
-    this.router.navigate(['/centrocusto'])
+    this.router.navigate(['/app/centrocusto'])
   }
 
 
